@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Download do Mapa</title>
-  <meta http-equiv="refresh" content="7;url=https://www.google.com/maps/d/viewer?mid=1YSFEwsvi0ZD4kze9fpAR2Y5bksk7fAk&ll=-20.286380617903045%2C-40.36794942453921&z=13">
-</head>
-<body onload="startDownload()">
-  <h2>Baixando o arquivo do mapa...</h2>
-  <p>Você será redirecionado para o mapa online em instantes.</p>
   <script>
     function startDownload() {
+      // Força o download do KMZ direto do GitHub Pages
       const link = document.createElement("a");
-      link.href = "https://drive.google.com/uc?export=download&id=1D45kuTUKtOhRXPv8SQStSp77VF9r-9t4";
-      link.download = ""; // ou "meu_mapa.kmz"
+      link.href = "https://lucasbclls.github.io/qr-code/mapa.kmz";  // Caminho direto no seu GitHub Pages
+      link.download = "mapa.kmz";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+
+      // Redireciona para o Google My Maps após 5 segundos
+      setTimeout(function() {
+        window.location.href = "https://www.google.com/maps/d/viewer?mid=1YSFEwsvi0ZD4kze9fpAR2Y5bksk7fAk&ll=-20.23713201143216%2C-40.42354520598195&z=12";
+      }, 5000);
     }
   </script>
+</head>
+<body onload="startDownload()">
+  <h2>Baixando o arquivo do mapa...</h2>
+  <p>Você será redirecionado para a visualização online do mapa em instantes.</p>
 </body>
 </html>
